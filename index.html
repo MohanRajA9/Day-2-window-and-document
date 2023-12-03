@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window & Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2>Window & Document object</h2>
+        </div>
+        <div id="intro">
+            <h3>Introduction</h3>
+            <h4>Window</h4>
+            <P>The window object plays a crucial role as the global object in the context of web browser, the window object is fundamental part of the javascript progamming language. It represents the browser window that contains the webpage. The window object provides global scope for all javascript code running within that window, It hosts essential methods and properties.</P>
+            <h4>Document</h4>
+            <P>In web development, the document is the key component of the document object model(DOM), It represents the HtML file loaded in the browser. The document object provides a interface for interacting with a content of  web page, allowing developers to manipulate, and by using the doucument a developer can modify the document's structure,content, and styles using javascript.</P>
+            <h4>Browser Object Model (BOM)</h4>
+            <P>The Browser Object Model contains objects that represent the current browser window or tab. The topmost object in the BOM is the window object representing the window or tab. </P>
+        </div>
+        <div id="contents">
+            <h4>Exploring the Difference Between the window and document objects in javascript</h4>
+            <h5>window object :</h5>
+            <p>The topmost object in the BOM is the window object representing window or tab, window object has properties like browser history and location.</p>
+            <h5>document object:</h5>
+            <P>When a web page is loaded, the browser creates a Document Object Model of the page. The HTML parser provides document object when it converts the HTML file into Document Object Model</P>
+
+        </div>
+        <div>
+            <h4>Global context</h4>
+            <h5>Global Scope:</h5>
+            <p>variables and functions declared without the let and const keywords become the properties of the window object. This means they are accessible globaly, as the properties of window.</p>
+            <h5>Global Execution Context:</h5>
+            <p>When javascript code runs, it runs in a global execution context. This context is associated with the window object. Any variables or functions  declared without being part of a specific function or object are considered golbal and are attached to the window object.</p>
+            <h5>Global Object Methods and Properties:</h5>
+            <P>The window object provides various methods and properties that are globally available. For instance, functions like alert(), setTimeout() and setInterval() are the part of window object. Similarly, properties like document (the Document Object Model) and location (representing the current URL) are also properties of window.</P>
+        </div>
+        <div>
+            <h4>Accessing Elements</h4>
+            <p>The document object is a crucial part of the Document Object Model(DOM) and represents the entire HTML document in a web page. It provides various methods to facilitate the selection and manipulation of HTML elements. Two commonly used methods for selecting elements are getElementById() and getElementsByClassName()</p>
+            <h5>getElementById();</h5>
+            <p>This method is used to retrieve an HTML element based on its unique id attribute. The id attribute of an HTML element must be unique within the entire document. The method takes the id as a parameter and returns the element with that specific ID</p>
+            <h5>getElementsByClassName();</h5>
+            <p>This method is used to retrive a collection of HTML elements that have a specified class. The method takes the class name as a parameter and returns a collection(array-like NodeList) of elements that have that class</p>
+            <p>These methods are just a couple of examples of how the document object facilitates the selection of HtML elements in javascript.The DOM provides a variety of other methods for more advanced element selection and manipulation, making it a powerful tool for dynamic web page interactions.</p>
+        </div>
+        <div>
+            <h4>Manipulation Of Context of window</h4>
+            <h6>Global Properties:</h6>
+            <P>window serves as the global object for javascript in the brower. Global variables and functions are attached to the window object.    
+            </P>
+
+            <div class="ex">                <span>window.myGlobalVariable = 42;</span>
+                <span>console.log(myGlobalVariable);</span> </div>
+            
+            <h6>Timers and Intervals:</h6>
+            <p>window is used for setting timers and intervals</p>
+            <div class="ex">
+                <span>window.setTimeout(function(){</span>
+                <span>console.log("Delayed action");</span>
+                <span>}, 1000);</span>
+            </div>
+
+            <h6>Browser Interaction:</h6>
+            <p>window is responsible for interacting with the browser, such as opening new windows or tabs</p>
+            <div class="ex">
+                <span>window.open("https://example.con");</span>
+            </div>
+        </div>
+        <div>
+            <h4>Manipulation Of Context of document :</h4>
+            <h6>Document Structure:</h6>
+            <p>document represents the current HtML document loaded in the browser. It allows manipulation of the document structure, such as creating, modifying, or deleting elements.</p>
+            <div class="ex">
+                <span>var newElement = document.createElement('div');</span>
+                <span>newElement.textContent = "New Element";</span>
+                <span>document.body.append(newElement);</span>
+            </div>
+
+            <h6>Event Handling:</h6>
+            <P>document is used for handling events within the document.</P>
+            <div class="ex">
+                <span>document.getElemntById('mybutton').addEventListener('click', function() {</span>
+                <span>console.log("Button clicked");</span>
+                <span>});</span>
+            </div>
+                <div>
+                <h6>CSS Styles</h6>
+                <p>document provides access to the styles of elements within the document.</p>
+                <div class="ex">
+                    <span>var myElement = document.getElementById('myElement');</span>
+                    <span>myElement.style.color = 'red';</span>
+                </div>
+              </div>
+            
+        </div>
+        <div>
+            <h4 id="trail">Combined Example:</h4>
+            <div class="ex">
+                <span>//Manipulating context with both window and document</span>
+                <span>window.myGlobalVariable = 42;  // globally declared</span>
+                <span>var newElement = document.createElement('div');// created by using document</span>
+                <span>newElement.textContent = "New Element";
+                </span>
+                <span>var newButton = document.createElement('button');</span>
+                <span>newButton.id="myButton"// set attribute by document</span>
+                <span>newButton.textContent = "New Button";</span>
+                <span>document.body.appendChild(newElement);</span>
+                <span>document.body.appendChild(newButton);</span>
+                <span>console.log(newButton) //it prints the created button</span>
+                <span>document.getElementById('myButton').addEventListener('click',function() {</span>
+                <span>console.log("Button clicked!");</span>
+                <span>}); // Handling events within the document</span>
+               </div>
+               <p>This example showcases how window is often used for global and browser-related operation, while document is focused on manipulating the structure and content of the current HTML document. Understanding thid distinction is crutial for effective web development, allowing us to interact with both the global environment and the specific document context.</p>
+        </div>
+        <div>
+            <h3>Conclusion</h3>
+            <h6>Understanding the Roles of window and document</h6>
+            <p>In the realm of web development, the window and document object play distinct yet interconnected roles. while both are essential components of the Document object Model (DOM), they serve different purposes, focusing on global browser context and document-specific content, respectively.</p>
+            <h3>window</h3>
+            <ol>
+                <li>Represents the global environment of the browser.</li>
+                <li>Manages browser-level operations such as navigation, timers, and global variables.</li>
+                <li>Handles interactions beyond the scope of the current document, including opening new windows or tabs.</li>
+            </ol>
+            <h3>document</h3>
+            <ol>
+                <li>Represents the current HTML document loaded in the browser.</li>
+                <li>Facilitates manipulation of the document structure, allowing creation, modification, and deletion of elements.</li>
+                <li>Provides access to document-specfic features.</li>
+            </ol>
+            <p>Understanding when to leverage window for overarching browser functionality and when to utilize document for documet-specific operation is crucial for effective web development. Both objects complements each other, contributing to a seamless and dynamic browsing experience.</p>
+            <p>In summary, while window oversees the global stage, document focuses on the intricacies of the current web page., together forming the backbone of the interactive and engaging web applications.</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+<style>
+    span{
+        display: block;
+    }
+    .ex{
+        background-color: rgb(229, 255, 0);
+    }
+    h6{
+        margin-top:10px;
+    }
+    h4{
+        margin-top: 15px;
+    }
+</style>
+</html>
